@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Resume Builder</title>
+    <style>
+        body {
+
+            background-image: url('back1.jpg.jpg');
+            background-size: cover;
+            height: 100vh;
+            background-position: center;
+        }
+
+        * {
+            margin: 5;
+            padding: 10;
+            box-sizing: border-box;
+        }
+
+        #rb {
+            color: rgb(255, 255, 255);
+            text-align: center;
+            background-color: rgb(69, 58, 58);
+            padding: 5px;
+            /* Add some padding for better visibility */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+            /* Box shadow */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+            /* Text shadow */
+
+        }
+
+        .inputContainer {
+            padding: 10px 30px;
+            background: rgb(175, 188, 188);
+            border-radius: 10px;
+            height: auto;
+            width: 80%;
+            margin: auto;
+            margin-bottom: 40px;
+            background-image: url('back2.png');
+            background-size: cover;
+            height: 100v;
+            background-position: center;
+            /*div shadow*/
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+            /* Box shadow */
+        }
+
+        .spacing {
+            display: block;
+        }
+
+        input {
+            padding: 4px;
+            margin-bottom: 15px;
+            border: 1.5px solid black;
+            width: 400px;
+            
+
+
+        }
+
+        input:focus {
+            border: 2px solid rgba(74, 51, 51, 0.808);
+        }
+
+        textarea::placeholder {
+            color: rgba(0, 0, 0, 0.7);
+            /* Change to your desired color */
+            opacity: 1;
+            /* Ensure full opacity for the placeholder text */
+        }
+
+        button {
+            padding: 10px 20px;
+            /* Adjusts the size of the button */
+            background-color: lightpink;
+            /* Light pink background */
+            border: 2px solid black;
+            /* Black border */
+            color: black;
+            /* Text color */
+            font-size: 16px;
+            /* Increases font size */
+            cursor: pointer;
+            /* Changes cursor to pointer on hover */
+            transition: background-color 0.3s;
+            /* Smooth transition for background color */
+
+        }
+
+        button:hover {
+            background-color: rgb(98, 20, 90);
+            color: rgb(14, 4, 71);
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1 id="rb">RESUME BUILDER</h1>
+    <div class="inputContainer">
+        <form class="inputField" onsubmit="generate(event)">
+            NAME: <input type="text" placeholder="ENTER FULL NAME" name="name" id="name" class="spacing"
+                style="width: 100%;" required/>
+            PROFILE: <input type="text" placeholder="ENTER CURRENT PROFILE" name="profile" id="profile" class="spacing"
+                style="width: 100%;" required/>
+            MOB NO: <input type="tel" placeholder="ENTER MOBILE NUMBER" name="mobile" class="spacing"
+                style="width: 100%;" required>
+            GMAIL: <input type="text" placeholder="ENTER GMAIL" name="gmail" style="width: 100%;" required>
+            <h3>Social media:</h3>
+            LinkedIn: <input type="url" name="linkedin" placeholder="eg:https://www.linkedin.com/your_id/" style="margin-right: 20px;" required>
+            Instagram: <input type="url" name="instagram" placeholder="eg:https://www.instagram.com/your_id/" required> <br>
+            Leetcode: <input type="url" name="leetcode" placeholder="eg:https://www.leetcode.com/your_id/" required> <br>
+            
+            <h3>Education</h3>
+
+            DEGREE: <input type="text" id="degree" class="spacing" name="degree" placeholder="Select Your Degree"
+                list="degrees1"required />
+            <datalist id="degrees1">
+                <option value="btech">B.Tech (Bachelor of Technology)</option>
+                <option value="mca">MCA(Master of Computer Applications)</option>
+                <option value="bba">BBA(Bachelor of Business Administration)</option>
+                <option value="mba">MBA(Master of Business Administration)</option>
+                <option value="bsc">B.Sc(Bachelor of Science)</option>
+                <option value="msc">M.Sc(Master of Science)</option>
+                <option value="be">BE(Bachelor of Engineering)</option>
+                <option value="mtech">M.Tech (Master of Technology)</option>
+                <option value="ba">BA(Bachelor of Arts)</option>
+                <option value="ma">MA(Master of Arts)</option>
+            </datalist>
+
+            COLLEGE:<input type="text" name="college" placeholder="college name" class="spacing" required>
+
+            STREAM: <input type="text" name="stream" placeholder="Enter stream" class="spacing" required>
+            <label for="stream">CGPA:</label>
+            <input type="text" name="cgpa" placeholder="CGPA" class="spacing" required> <br> <br>
+            <div class="textbox">
+                <h3>Experience:</h3> <br>
+                <label for="exp_years">select years of experience</label>
+                <select name="exp_years" id="exp_years" required>
+                    <option value="0-3">0-3</option>
+                    <option value="4-7">4-7</option>
+                    <option value="8-11">8-11</option>
+                    <option value="12-15">12-15</option>
+                    <option value="16-19">16-19 </option>
+                    <option value="20-23">20-23</option>
+                    <option value="24-27">24-27</option>
+                    <option value="27-30">27-30</option>
+                    <option value="Above 30">Above 30</option>
+                </select>
+
+                <textarea placeholder="Describe Experience . . ." name="experience" cols="30" rows="4"required></textarea>
+                <b>SKILLS</b> <textarea placeholder="Describe skills . . ." name="skills" cols="30" rows="4" required></textarea>
+                <b>HOBBIES</b> <textarea placeholder="Describe hobbies . . ." name="hobbies" cols="30"
+                    rows="4" required></textarea>
+            </div>
+            <br>
+
+            <br> <br>
+            <div class="textbox">
+
+                <b>Projects:</b> <textarea placeholder="Describe PROJECTS . . ." name="projects" cols="50"
+                    rows="4" required></textarea> <br>
+                <b>Address:</b><textarea placeholder="parmanent address . . ." name="address" cols="50"
+                    rows="4" required></textarea> <br>
+            </div>
+            <h3>Acheivements:</h3>
+            <textarea placeholder="Describe acheivements . . ." name="acheivements" cols="50" rows="4" required></textarea>
+
+           Upload project file: <input type="file" id="projectFile" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" style="border: none;" required>
+            <div class="image-upload">
+                <label for="imageInput">Upload Profile Image:</label>
+                <input type="file" id="imageInput" accept="image/*" style="border: none;" required>
+                <img id="preview" alt="Image Preview" style="display: none; margin-top: 10px; max-width: 150px; border-radius: 10px;">
+            </div>
+            <div style="justify-content: center;">
+                <center>
+    
+                    <button type="submit" onclick="generate();">
+                        Generate
+                    </button> <br> <br>
+                </center>
+    
+            </div>
+        </form>
+        
+    </div>
+
+    <div class="output_container"></div>  
+    <script src="script.js"></script>
+</body>
+
+</html>
